@@ -111,6 +111,25 @@ void main() {
   }
   print(newnum);
 
+  // Given an array of integers, find the missing number from a sequence of numbers from 1 to n.
+  List<int>num5=[1,2,4,5];
+  List<int> ec=[];
+  //int e=0;
+  for(int i=0;i<num5.length-1;i++){
+    //for(int j=i+1;j<=i+1;j++){
+    ///i=i+1; ///if we use i++ then i value is re-assaign. but if we use j=i+1
+    ///it will not reassaign the i value
+    //int j=i+1;
+    //print(i);
+    int j=i+1;
+    if(num5[j]!=num5[i]+1) {
+      ec.add(num5[i] + 1);
+    }
+    //}
+  }
+  print(ec);
+
+
 
 
 
