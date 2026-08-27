@@ -63,4 +63,22 @@ void main() {
   }
   print(value);
 
+
+  //Given an array of integers, find the second-largest number without sorting the array.
+  List <int> num2=[1,9,7,2,3];
+  for(int i=0;i<num2.length;i++){
+    for(int j=i+1;j<num2.length;j++){
+      if(num2[i]<num2[j]){
+        int temp=num2[i];
+        num2[i]=num2[j];
+        num2[j]=temp;
+
+      }
+
+    }
+
+  }
+  //print(num);
+  print(num2[1]);
+
 }
