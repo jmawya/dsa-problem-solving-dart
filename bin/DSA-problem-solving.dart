@@ -81,4 +81,20 @@ void main() {
   //print(num);
   print(num2[1]);
 
+  //Palendrom or not
+  String name='MOM';
+  String eo='';
+  for(int i=name.length-1;i>=0;i--){
+    eo=eo+name[i];
+    //print(name[i]);
+  }
+  print(eo);
+  if(name==eo){
+    print('Palendrom');
+  }else{
+    print('none Palendrom');
+  }
+
+
+
 }
