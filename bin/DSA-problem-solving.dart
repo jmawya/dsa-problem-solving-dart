@@ -24,6 +24,19 @@ void main(){
   }
   print(largest);
 
+  ///ascending order sorting problem
+  List<int> number=[5,7,1,8,3,0];
+  for(int i=0;i<number.length;i++){
+    for(int j=i+1;j<number.length;j++) {
+      if (number[i] > number[j]) {
+        int temp = number[i];
+        number[i] = number[j];
+        number[j] = temp;
+      }
+    }
+  }
+  print(number);
+
 
 
 }
