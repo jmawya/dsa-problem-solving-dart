@@ -150,6 +150,16 @@ void main() {
     //print(e);
   }
   print(en);
+  ///Given an integer, reverse the number without converting it to a String.
+  int b=597;
+  int f=0;
+  for(int number1=b;number1>0;){
+  int num1=number1%10; //7 //9 //5
+  f=f*10+num1;
+  number1=number1~/10; //59 //5 //0
+  }
+  print(f);
+
 
 
 
