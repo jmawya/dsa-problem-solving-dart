@@ -129,6 +129,16 @@ void main() {
   }
   print(ec);
 
+  /// Given an integer, find the factorial of that number.
+
+  int we=4;
+  int ?ep;
+  for(int i=1;i<=we;i++){
+    ep=i*we;
+  }
+  print(ep);
+
+
 
 
 
