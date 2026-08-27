@@ -138,6 +138,19 @@ void main() {
   }
   print(ep);
 
+  /// Given an integer, count how many digits it contains.
+
+  int a = 136;
+  int en = 0;
+  //int number=a;
+  for (int  number=a; number>0;) {
+    int num = number % 10; //6 //3 //1
+    en = en + 1;
+    number = number ~/ 10; //13 //1 //0
+    //print(e);
+  }
+  print(en);
+
 
 
 
