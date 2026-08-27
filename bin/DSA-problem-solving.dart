@@ -1,22 +1,23 @@
-void main(){
+import 'dart:io';
+void main() {
   //Given an integer, determine whether it is positive, negative, or zero.
-  int num=-5;
-  if(num>0){
+  int num = -5;
+  if (num > 0) {
     print('positive number: $num');
   }
-  else if(num<0){
-    print('Negative number:$num') ;
-
+  else if (num < 0) {
+    print('Negative number:$num');
   }
-  else{
+  else {
     print('Zero');
   }
+
   ///Given three integers, find the largest number without using any built-in function.
-  List<int> aa=[1,8,3,9];
-  int largest=aa[0];
-  for(int i=1;i<aa.length;i++){
-    if(aa[i]>largest){
-      largest=aa[i];
+  List<int> aa = [1, 8, 3, 9];
+  int largest = aa[0];
+  for (int i = 1; i < aa.length; i++) {
+    if (aa[i] > largest) {
+      largest = aa[i];
       //print(largest);
     }
     //print(largest);
@@ -25,9 +26,9 @@ void main(){
   print(largest);
 
   ///ascending order sorting problem
-  List<int> number=[5,7,1,8,3,0];
-  for(int i=0;i<number.length;i++){
-    for(int j=i+1;j<number.length;j++) {
+  List<int> number = [5, 7, 1, 8, 3, 0];
+  for (int i = 0; i < number.length; i++) {
+    for (int j = i + 1; j < number.length; j++) {
       if (number[i] > number[j]) {
         int temp = number[i];
         number[i] = number[j];
@@ -38,5 +39,28 @@ void main(){
   print(number);
 
 
+  ///Given an array of integers, find the number that occurs the most times.
+  List<int> num1 = [1, 5, 9, 5, 8, 5, 9, 8, 1];
+
+  int ei = 0;
+  int value = 0;
+  int highest = 0;
+  for (int i = 0; i < num1.length; i++) {
+    for (int j = 0; j < num1.length; j++) {
+      if (num1[i] == num1[j]) {
+        ei = ei + 1;
+      }
+    }
+    if (highest < ei) {
+      highest = ei;
+      value = num1[i];
+      // print(i);
+    }
+
+    //Map<int, int> name = {num[i]: e};
+    ei = 0;
+    //print(name);
+  }
+  print(value);
 
 }
