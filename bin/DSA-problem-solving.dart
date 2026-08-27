@@ -94,6 +94,23 @@ void main() {
   }else{
     print('none Palendrom');
   }
+  ///Given an array of integers, remove duplicate values without using Set.
+  List<int> num4 = [1, 5, 9, 5, 5, 9, 8, 1];
+  List<int> newnum=[];
+  for(int i=0;i<num4.length;i++){
+    bool match=false;
+    for(int j=0;j<i;j++){
+      if(num4[i]==num4[j]){
+        match=true;
+        break;
+      }
+    }
+    if(!match){
+      newnum.add(num4[i]);
+    }
+  }
+  print(newnum);
+
 
 
 
