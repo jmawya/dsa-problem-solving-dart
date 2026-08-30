@@ -46,5 +46,45 @@ main(){
 
 
 
+  ///Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 
+  String m = "anagram", p = "nagaram";
+  Map<String,int> gro={};
+  if(m.length!=p.length){
+    print('false');
+  }
+  for(int i=0;i<m.length;i++) {
+    if (gro.containsKey(m[i])) {
+      gro[m[i]] = gro[m[i]]! + 1;
+    }
+    else {
+      gro[m[i]] = 1;
+    }
+  }
+
+  print(gro);
+  for (int j = 0; j < p.length; j++) {
+    ///p[j]
+    if (!gro.containsKey(p[j])) {
+      print("false");
+      break;
+    }
+    gro[p[j]] = gro[p[j]]!-1;
+    if(gro[p[j]]==0){
+      gro.remove(p[j]);
+    }
+
+    if(gro.isEmpty){
+      print('true');
+    }
+
+  }
 }
+
+
+
+
+
+
+
+

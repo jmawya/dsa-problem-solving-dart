@@ -166,24 +166,18 @@ void main() {
   int year=int.parse(stdin.readLineSync()!);
   //int year=2024;
   if(year%400==0){
-    print('Leep year');
+    print('Leap year');
   }
   else if(year%4==0 && year%100!=0){
-    print('Leep year');
+    print('Leap year');
   }
   else if(year%100==0){
-    print('''it's not a leep year because it's century''');
+    print('''it's not a leap year because it's century''');
   }
   else{
     print('Normal year');
 
   }
-
-
-
-
-
-
 
 
 
