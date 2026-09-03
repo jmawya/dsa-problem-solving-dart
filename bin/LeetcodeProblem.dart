@@ -80,8 +80,12 @@ main(){
 
   }
   Solution na=Solution();
-  na.containsDuplicate([1,2,3,1]);
-  print(na.containsDuplicate);
+  //na.containsDuplicate([1,2,3,1]);
+  print(na.containsDuplicate([1,2,3,1]));
+
+  Solution1 no=Solution1();
+  //no.twoSum([2,3,4,5],6);
+  print(no.twoSum([2,3,4,5],6));
 
 
 
@@ -97,6 +101,21 @@ class Solution {
 
     }
     return false;
+  }
+}
+class Solution1 {
+  List<int> twoSum(List<int> nums, int target) {
+    List<int> sd=[];
+    for(int i=0;i<nums.length;i++){
+      for(int j=0;j<i;j++){
+        if(nums[i]+nums[j]==target){
+          sd.addAll([i,j]);
+
+        }
+      }
+    }
+    return sd;
+
   }
 }
 
