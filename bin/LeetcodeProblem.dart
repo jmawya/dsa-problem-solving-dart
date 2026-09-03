@@ -79,6 +79,25 @@ main(){
     }
 
   }
+  Solution na=Solution();
+  na.containsDuplicate([1,2,3,1]);
+  print(na.containsDuplicate);
+
+
+
+}
+class Solution {
+  bool containsDuplicate(List<int> nums) {
+    Set<int> nu={};
+    for(int i=0;i<nums.length;i++){
+      if(nu.contains(nums[i])){
+        return true;
+      }
+      nu.add(nums[i]);
+
+    }
+    return false;
+  }
 }
 
 
