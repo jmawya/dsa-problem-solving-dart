@@ -88,6 +88,13 @@ main(){
   print(no.twoSum([2,3,4,5],6));
 
 
+  Solution2 su=Solution2();
+  print(su.topKFrequent([1,1,1,2,2,3], 2));
+  print(su.topKFrequent([7,7], 1));
+  print(su.topKFrequent([1], 1));
+  print(su.topKFrequent([1,2,1,2,1,2,3,1,3,2], 2));
+
+
 
 }
 class Solution {
@@ -115,6 +122,50 @@ class Solution1 {
       }
     }
     return sd;
+
+  }
+}
+
+class Solution2 {
+  List<int> topKFrequent(List<int> nums, int k) {
+    Map<int,int>ele={
+    };
+    for(int i=0;i<nums.length;i++){
+      int b=nums[i];  //1
+      int e=1;
+      if(ele.containsKey(nums[i])){
+        ele[nums[i]]=ele[nums[i]]!+1;
+      }
+      else{
+        ele[nums[i]]=e;
+      }
+    }
+
+    // print(ele);
+    ///[1,8,9,2]
+    //print('Ele ${ele.keys}');
+    List<int> ke=ele.keys.toList();
+    for(int i=0;i<ke.length;i++){
+      for(int j=i+1;j<ke.length;j++){
+        if(ele[ke[i]]! < ele[ke[j]]!){
+          int temp=ke[i];
+          ke[i]=ke[j];
+          ke[j]=temp;
+        }
+      }
+    }
+    List<int> te=[];
+    for(int i=0;i<k;i++){
+      te.add(ke[i]);
+    }
+    return te;
+
+    /// print(ele.values);
+    /// ele.forEach((key,value) {
+    ///  if(value>=k){
+    ///     te.add(key);
+    ///   }
+    /// });
 
   }
 }
