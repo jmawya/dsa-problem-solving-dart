@@ -94,6 +94,10 @@ main(){
   print(su.topKFrequent([1], 1));
   print(su.topKFrequent([1,2,1,2,1,2,3,1,3,2], 2));
 
+  Solution4 sd=Solution4();
+  print(sd.encode(["Hello","World"]));
+  print(sd.decode("5#Hello5#World"));
+
 
 
 }
@@ -162,14 +166,46 @@ class Solution2 {
 
     /// print(ele.values);
     /// ele.forEach((key,value) {
-    ///  if(value>=k){
-    ///     te.add(key);
+    /// if(value>=k){
+    /// te.add(key);
     ///   }
     /// });
 
   }
-}
 
+}
+///strs = ["Hello","World"]
+class Solution4{
+  dynamic encodeString='';
+  String encode(List<String> strs){
+    for(int i=0;i<strs.length;i++){
+      int s=strs[i].length;
+      encodeString=encodeString+('${strs[i].length}#${strs[i]}');
+    }
+     return encodeString;
+  }
+///  5#Hello5#World
+  List<String> decode(String encoded_string){
+     List<String> result=[];
+     int i=0;
+     while(i<encodeString.length){///0<encodeString.length //7<encodeString.length
+       int j=i; //j=0  //7
+       while(encodeString[j]!='#'){
+         j++;  //j=1  //j=8
+       }
+       print('J value $j'); // j value is 1 and 8
+       int len=int.parse(encodeString.substring(i,j)); //int len=5 //int len=5
+       i=j+1; //i=2 //9
+       String wo=encodeString.substring(i,i+len); ///i+len=7 start counting from 0 //Hello  //9 to 14
+       result.add(wo);
+       i=i+len;
+
+
+     }
+
+    return result;
+  }
+}
 
 
 
