@@ -98,6 +98,13 @@ main(){
   print(sd.encode(["Hello","World"]));
   print(sd.decode("5#Hello5#World"));
 
+  Solution5 ol=Solution5();
+  print(ol.decodestring('3[a]2[bc]'));
+
+
+  Solution6 sn=Solution6();
+  print(sn.productExceptSelf([2,3,4,5]));
+
 
 
 }
@@ -208,6 +215,48 @@ class Solution4{
 }
 
 
+
+/// s = "3[a]2[bc]"
+class Solution5 {
+  String decodestring(String s) {
+    String str = '';
+    int i = 0;
+    while (i < s.length) {
+      int j = i; //j=0  //4
+      while (s[j] != '[') {
+        j++; //j=1  //j=5
+      }
+      int len = int.parse(s.substring(i, j)); //len=3 len=2
+      i = j + 1; //2  //6
+      while (s[j] != ']') {
+        j++; //3 //8
+      }
+      String we = s.substring(i, j); //a //i=6 j=8 //bc
+      for (int i = 0; i < len; i++) {
+        str += we;
+      }
+      i = j + 1;
+    }
+    return str;
+  }
+}
+
+class Solution6{
+  List<int> productExceptSelf(List<int>nums){
+    List<int> result=List.filled(nums.length,1);
+    int left=1;
+    for(int i=0;i<nums.length;i++){
+      result[i]=left;
+      left=left*nums[i];
+    }
+    int right=1;
+    for(int i=nums.length-1;i>=0;i--){
+      result[i]=right*result[i];
+      right=right*nums[i];
+    }
+    return result;
+  }
+}
 
 
 
