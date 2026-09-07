@@ -105,6 +105,27 @@ main(){
   Solution6 sn=Solution6();
   print(sn.productExceptSelf([2,3,4,5]));
 
+  Solution7 on=Solution7();
+  print(on.isValidSudoku([["8","3",".",".","7",".",".",".","."]
+    ,["6",".",".","1","9","5",".",".","."]
+    ,[".","9","8",".",".",".",".","6","."]
+    ,["8",".",".",".","6",".",".",".","3"]
+    ,["4",".",".","8",".","3",".",".","1"]
+    ,["7",".",".",".","2",".",".",".","6"]
+    ,[".","6",".",".",".",".","2","8","."]
+    ,[".",".",".","4","1","9",".",".","5"]
+    ,[".",".",".",".","8",".",".","7","9"]]));
+  print(on.isValidSudoku([["5","3",".",".","7",".",".",".","."]
+    ,["6",".",".","1","9","5",".",".","."]
+    ,[".","9","8",".",".",".",".","6","."]
+    ,["8",".",".",".","6",".",".",".","3"]
+    ,["4",".",".","8",".","3",".",".","1"]
+    ,["7",".",".",".","2",".",".",".","6"]
+    ,[".","6",".",".",".",".","2","8","."]
+    ,[".",".",".","4","1","9",".",".","5"]
+    ,[".",".",".",".","8",".",".","7","9"]]));
+
+
 
 
 }
@@ -259,6 +280,36 @@ class Solution6{
 }
 
 
+class Solution7(){
+  bool isValidSudoku(List <List<String>> board){
+    Map<int,Set<String>> row={};
+    Map<int,Set<String>> col={};
+    Map<String,Set<String>>square={};
+    for(int r=0;r<board.length;r++){
+      for(int c=0;c<board[r].length;c++){
+        String val=board[r][c];
+        if(val=='.'){
+          continue; //skip it, and go to the next box
+        }
+        String s=('${r~/3},${c~/3}');
+        row.putIfAbsent(r,()=>{});
+        col.putIfAbsent(c,()=>{});
+        square.putIfAbsent(s,()=>{});
 
+        if(row[r]!.contains(val)||col[c]!.contains(val)||square[s]!.contains(val)){
+          return false;
+        }
+        else{
+          row[r]!.add(val);
+          col[c]!.add(val);
+          square[s]!.add(val);
+        }
+
+      }
+    }
+    return true;
+  }
+
+}
 
 
