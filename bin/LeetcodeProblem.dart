@@ -125,6 +125,12 @@ main(){
     ,[".",".",".","4","1","9",".",".","5"]
     ,[".",".",".",".","8",".",".","7","9"]]));
 
+  Solution8 io=Solution8();
+  print(io.longestConsecutive([100,4,200,1,3,2]));
+  print(io.longestConsecutive([0,3,7,2,5,8,4,6,0,1]));
+  print(io.longestConsecutive([1,0,1,2]));
+
+
 
 
 
@@ -310,6 +316,33 @@ class Solution7(){
     return true;
   }
 
+}
+
+class Solution8 {
+  int longestConsecutive(List<int> nums) {
+    Set<int> numSet=nums.toSet();
+    int longest=0;
+    for(int n in numSet){
+      if(!numSet.contains(n-1)){
+        int length=0;
+        while(numSet.contains(n+length)){
+          length++;
+        }
+       // longest=length>longest?length:longest;
+
+            if(length>longest){
+               longest=length;
+            }
+            // else{
+            //    longest=longest;
+            // }
+
+
+      }
+    }
+    return longest;
+
+  }
 }
 
 
