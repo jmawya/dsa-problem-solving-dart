@@ -26,18 +26,6 @@ class Solution {
   }
 }
 
-void main(){
-  Solution pal=Solution();
-  print(pal.twoSum([2,7,11,15],9));
-  print(pal.twoSum([-1,0], -1));
-
-  SolutionThreeSum three=SolutionThreeSum();
-  print(three.threeSum([-1,0,1,2,-1,-4]));
-  print(three.threeSum( [0,1,1]));
-  print(three.threeSum([0,0,0]));
-
-
-}
 
 class SolutionThreeSum {
   List<List<int>> threeSum(List<int> nums) {
@@ -81,4 +69,42 @@ class SolutionThreeSum {
     return sum;
 
   }
+}
+
+class Container {
+  int maxArea(List<int> height) {
+    int res=0;
+    int left=0;
+    int right=height.length-1;
+    while(left<right){
+      int area=(right-left)*(height[left]<height[right] ? height[left] : height[right]);
+      res=res<area ? area : res;
+
+      if(height[left]<height[right]){
+        left++;
+      }
+      else{
+        right--;
+      }
+
+    }
+    return res;
+  }
+}
+
+void main(){
+  Solution pal=Solution();
+  print(pal.twoSum([2,7,11,15],9));
+  print(pal.twoSum([-1,0], -1));
+
+  SolutionThreeSum three=SolutionThreeSum();
+  print(three.threeSum([-1,0,1,2,-1,-4]));
+  print(three.threeSum( [0,1,1]));
+  print(three.threeSum([0,0,0]));
+
+  Container co=Container();
+  print(co.maxArea([1,8,6,2,5,4,8,3,7]));
+  print(co.maxArea([1,1]));
+
+
 }
